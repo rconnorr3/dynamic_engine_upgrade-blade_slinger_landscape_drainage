@@ -1,6 +1,4 @@
-/* -----------------------------------
-   GLOBAL STYLES
------------------------------------ */
+/* GLOBAL */
 
 body {
   margin: 0;
@@ -14,72 +12,135 @@ a {
   color: inherit;
 }
 
-/* -----------------------------------
-   HEADER WITH CENTERED LOGO
------------------------------------ */
-
-/* HEADER WITH CENTERED LOGO + NAV UNDER IT */
+/* HEADER */
 .site-header {
-  background: #0b3d2e;
-  padding: 20px 0;
+  background: white;
+  padding: 20px 0;                 /* keep your original header height */
   display: flex;
-  justify-content: center;
+  justify-content: center;         /* center the logo container */
   align-items: center;
+  position: relative;              /* allows nav to float right */
 }
 
+/* LOGO — make it larger */
+.site-logo {
+  height: 320px;                   /* was 250px — now bigger like your circle */
+  width: auto;
+  border-radius: 12px;
+}
+
+/* CENTER LOGO CONTAINER */
 .header-center {
   display: flex;
-  flex-direction: column;   /* stack logo + nav vertically */
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
+  text-align: center;
 }
 
-.site-logo {
-  height: 250px;
-  width: auto;
-  margin-bottom: 10px;      /* space between logo and nav */
-}
-
-/* NAVIGATION CENTERED UNDER LOGO */
+/* NAVIGATION — move to the right of the logo */
 .site-nav {
+  position: absolute;
+  right: 15%;                      /* halfway between logo & right edge */
+  top: 50%;
+  transform: translateY(-50%);     /* vertically centered */
   display: flex;
+  flex-direction: column;          /* stack vertically */
+  gap: 10px;
+}
+
+/* NAV BUTTONS */
+.site-nav a {
+  padding: 10px 18px;
+  background: #0b3d2e;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #064d2e;
+  transition: all 0.1s ease-in-out;
+  width: 180px;                    /* consistent button width */
+  text-align: center;
+}
+
+.site-nav a:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #064d2e;
+}
+
+/* NAVIGATION — move to the right of the logo */
+.site-nav {
+  position: absolute;
+  right: 15%;                      /* halfway between logo & right edge */
+  top: 50%;
+  transform: translateY(-50%);     /* vertically centered */
+  display: flex;
+  flex-direction: column;          /* stack vertically */
   gap: 20px;
 }
 
-.site-nav a,
-.cart-badge {
+/* NAV BUTTONS */
+.site-nav a {
+  padding: 25px 18px;
+  background: #0b3d2e;
   color: white;
+  border-radius: 8px;
   font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #064d2e;
+  transition: all 0.1s ease-in-out;
+  width: 180px;                    /* consistent button width */
+  text-align: center;
+}
+
+.site-nav a:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #064d2e;
 }
 
 
-/* -----------------------------------
-   HERO SECTION (HOME PAGE)
------------------------------------ */
+/* HERO */
 
 .hero {
-  padding: 80px 20px;
-  text-align: center;
-  background: #e8f5e9;
+  width: 100%;
+  height: 90vh; /* almost full screen */
+  background-image: url("assets/images/hero-photo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  padding-left: 60px; /* pushes text inward */
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  max-width: 450px;
 }
 
 .hero h2 {
-  margin-bottom: 10px;
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .hero-btn {
   display: inline-block;
-  margin-top: 20px;
   padding: 12px 25px;
   background: #0b3d2e;
   color: white;
   border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 4px 0 #064d2e;
 }
 
-/* -----------------------------------
-   CATALOG LAYOUT
------------------------------------ */
+
+/* CATALOG LAYOUT */
 
 .catalog-layout {
   display: grid;
@@ -88,9 +149,9 @@ a {
   padding: 20px;
 }
 
-/* FILTER PANEL */
-
-.filters {
+.filters,
+.cart,
+.grid-section {
   background: white;
   padding: 20px;
   border-radius: 8px;
@@ -109,32 +170,23 @@ a {
 
 /* PRODUCT GRID */
 
-.grid-section {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-}
-
 #product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* SERVICE CARDS */
-
 .service-card {
   background: #ffffff;
   border-radius: 8px;
   padding: 15px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* FORCE ALL IMAGES SAME SIZE */
 .service-card img {
   width: 100%;
-  height: 200px;      /* adjust height here */
-  object-fit: cover;  /* keeps images from stretching */
+  height: 200px;
+  object-fit: cover;
   border-radius: 6px;
 }
 
@@ -159,28 +211,77 @@ a {
   cursor: pointer;
 }
 
-/* -----------------------------------
-   CART PANEL
------------------------------------ */
+.price-tag {
+  font-weight: bold;
+  color: #0b3d2e;
+  margin: 8px 0;
+}
 
-.cart {
+/* SUBMIT & DELETE BUTTONS */
+
+.submit-btn,
+.delete-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 0 #064d2e;
+  transition: all 0.1s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  background: #0b3d2e;
+}
+
+.delete-btn {
+  background: #b30000;
+  box-shadow: 0 4px 0 #660000;
+}
+
+.submit-btn:active,
+.delete-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cart button:last-child {
+  margin-bottom: 0;
+}
+
+/* CONTACT PAGE */
+
+.contact-container {
+  max-width: 600px;
+  margin: 40px auto;
   background: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
 }
 
-.cart ul {
-  padding-left: 20px;
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-/* -----------------------------------
-   FOOTER
------------------------------------ */
+/* FOOTER */
 
 .site-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0b3d2e;
+  width: 104%;               /* full width */
+  background: #0b3d2e;       /* same dark green */
   color: white;
-  margin-top: 40px;
+  text-align: center;
+  padding: 8px 0;           /* thin height */
+  font-size: 12px;           /* small text */
+  margin: 0;                 /* remove spacing above/below */
+  position: relative;        /* stays in normal flow */
+  left: 0;
 }

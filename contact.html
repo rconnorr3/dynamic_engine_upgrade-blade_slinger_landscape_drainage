@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Your Appointment</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-center">
+    <img src="assets/images/logo.jpg" alt="Blade Slinger Logo" class="site-logo">
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Drainage Services</a>
+      <a href="catalog2.html">Landscape Services</a>
+    </nav>
+  </div>
+</header>
+
+<main class="contact-container">
+  <h2>Book Your Appointment</h2>
+  <p>Please fill out the form below. Your selected services will be included automatically.</p>
+
+  <form id="contact-form">
+    <label>Name</label>
+    <input type="text" id="customer-name" required>
+
+    <label>Email</label>
+    <input type="email" id="customer-email" required>
+
+    <label>Phone Number</label>
+    <input type="text" id="customer-phone" required>
+
+    <label>Additional Notes</label>
+    <textarea id="customer-notes" rows="4"></textarea>
+
+    <button type="button" id="submit-appt" class="submit-btn">Submit Appointment Request</button>
+  </form>
+
+  <h3>Your Selected Services</h3>
+  <ul id="selected-services"></ul>
+
+  <h3>Total Estimated Cost:</h3>
+  <p id="total-cost">$0.00</p>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Blade Slinger Landscape Drainage Services</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
