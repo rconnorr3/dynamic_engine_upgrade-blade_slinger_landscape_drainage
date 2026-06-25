@@ -2,22 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Landscape Service Catalog</title>
+  <title>Drainage Services</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
 <header class="site-header">
   <div class="header-center">
-    <img src="assets/images/logo.jpg" alt="Blade Slinger Logo" class="site-logo">
-    <nav class="site-nav">
+
+    <div class="header-left">
+      <div class="review-block">
+        <div class="review-title">
+          <img src="assets/images/google-logo-icon.jpg" class="google-icon">
+          Google Reviews
+        </div>
+        <div class="review-author-title">A. Hammond</div>
+
+        <div class="review-body">
+         "Ryan and his crew at Blade Slinger do a fantastic job! They are very reliable, professional, the job is done correctly the first time and finishes it quickly. 
+         Makes managing my properties a breeze. Thank you Blade Slinger!
+        </div>
+      </div>
+    </div>
+
+    <div class="header-middle">
+      <img src="assets/images/logo.jpg" alt="Blade Slinger Logo" class="site-logo">
+    </div>
+
+    <nav class="site-nav header-right">
       <a href="index.html">Home</a>
       <a href="catalog.html">Drainage Services</a>
       <a href="catalog2.html">Landscape Services</a>
     </nav>
+
   </div>
 </header>
 
+
+<!-- MAIN LAYOUT -->
 <main class="catalog-layout">
+
+  <!-- FILTERS -->
   <aside class="filters">
     <h2>Filter by Category</h2>
     <button class="filter-button" data-category="All">All Services</button>
@@ -27,18 +53,20 @@
     <button class="filter-button" data-category="Soil & Fertility">Soil & Fertility</button>
   </aside>
 
+  <!-- PRODUCT GRID -->
   <section class="grid-section">
-    <h2>Landscape Services</h2>
     <div id="product-grid"></div>
   </section>
 
+  <!-- CART -->
   <aside class="cart">
     <h2>Selected Services</h2>
     <ul id="cart-list"></ul>
 
-    <button id="submit-services" class="submit-btn">Submit Selected Services</button>
-    <button id="delete-services" class="delete-btn">Delete Selected Services</button>
+    <button id="submit-services" class="submit-btn">Submit Services</button>
+    <button id="delete-services" class="delete-btn">Clear All</button>
   </aside>
+
 </main>
 
 <footer class="site-footer">

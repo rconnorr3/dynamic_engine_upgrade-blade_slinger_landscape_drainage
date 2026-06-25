@@ -6,14 +6,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="site-header">
+<header class="site-header contact-header">
   <div class="header-center">
     <img src="assets/images/logo.jpg" alt="Blade Slinger Logo" class="site-logo">
-    <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="catalog.html">Drainage Services</a>
-      <a href="catalog2.html">Landscape Services</a>
-    </nav>
   </div>
 </header>
 
@@ -22,20 +17,28 @@
   <p>Please fill out the form below. Your selected services will be included automatically.</p>
 
   <form id="contact-form">
-    <label>Name</label>
+    <label>Name <span class="required">*</span></label>
     <input type="text" id="customer-name" required>
 
-    <label>Email</label>
+    <label>Email <span class="required">*</span></label>
     <input type="email" id="customer-email" required>
 
-    <label>Phone Number</label>
+    <label>Phone Number <span class="required">*</span></label>
     <input type="text" id="customer-phone" required>
 
-    <label>Additional Notes</label>
-    <textarea id="customer-notes" rows="4"></textarea>
+    <label>Additional Notes <span class="required">*</span></label>
+    <textarea id="customer-notes" rows="4" required></textarea>
 
     <button type="button" id="submit-appt" class="submit-btn">Submit Appointment Request</button>
   </form>
+
+  <div id="confirmation-popup" class="popup hidden">
+  <div class="popup-content">
+    <h2>Appointment Request Received</h2>
+    <p id="confirmation-text"></p>
+    <button id="close-popup">Close</button>
+  </div>
+</div>
 
   <h3>Your Selected Services</h3>
   <ul id="selected-services"></ul>
@@ -44,7 +47,8 @@
   <p id="total-cost">$0.00</p>
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer contact-footer">
+  <a href="index.html" class="return-home-btn">Return to Home Page</a>
   <p>&copy; 2026 Blade Slinger Landscape Drainage Services</p>
 </footer>
 

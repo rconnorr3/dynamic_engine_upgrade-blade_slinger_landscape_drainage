@@ -22,7 +22,7 @@ a {
   padding: 20px 0;
   border-top: 2px solid #0f3d1e;
   border-bottom: 2px solid #0f3d1e;
-  width:104%
+  width:100%
 }
 
 /* 3‑column layout */
@@ -37,13 +37,13 @@ a {
    LEFT — REVIEW BLOCK
 ================================ */
 .header-left {
-  flex: 1.2;
+  flex: 1.4;
   display: flex;
-  justify-content: flex-end;
+  justify-content:flex-end;
 }
 
 .review-block {
-  max-width: 350px;
+  max-width: 275px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -71,17 +71,26 @@ a {
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #202124;                             /* Google dark gray */
+  color: #202124;                             
   margin-bottom: 6px;
+}
+
+.review-author-title {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  color: #EA4335; /
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
 }
 
 .review-body {
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 600;                            /* bold but readable */
+  font-size: 14px;
+  font-weight: 600;                           
   line-height: 1.45;
-  color: #34a853;                              /* Google text gray */
-  max-width: 260px;
+  color: #34a853;                             
+  max-width: 400px;
 }
 
 
@@ -95,7 +104,7 @@ a {
 }
 
 .site-logo {
-  height: 300px;
+  height: 350px;
   width: auto;
 }
 
@@ -103,9 +112,9 @@ a {
    RIGHT — NAVIGATION
 ================================ */
 .header-right {
-  flex: 1;
+  flex: 1.5;
   display: flex;
-  justify-content: flex-;
+  justify-content: flex-end;
 }
 
 .site-nav {
@@ -122,7 +131,7 @@ a {
   font-weight: bold;
   text-decoration: none;
   box-shadow: 0 4px 0 #064d2e;
-  width: 180px;
+  width: 275px;
   text-align: center;
   transition: 0.1s ease-in-out;
 }
@@ -132,12 +141,74 @@ a {
   box-shadow: 0 1px 0 #064d2e;
 }
 
+/* CONTACT PAGE HEADER */
+.contact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Home button on contact page */
+.contact-home-btn {
+  padding: 12px 20px;
+  background: #0b3d2e;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #064d2e;
+  transition: 0.1s ease-in-out;
+}
+
+.contact-home-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #064d2e;
+}
+
+/* CONTACT PAGE HEADER — centered logo + borders */
+.contact-header {
+  border-top: 2px solid #0f3d1e;
+  border-bottom: 2px solid #0f3d1e;
+  padding: 20px 0;
+  background: white;
+}
+
+.contact-header .header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTACT PAGE FOOTER — return home button */
+.contact-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.return-home-btn {
+  padding: 10px 20px;
+  background: white;
+  color: #0b3d2e;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 0 #064d2e;
+  transition: 0.1s ease-in-out;
+}
+
+.return-home-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #064d2e;
+}
 
 /* ================================
    HERO
 ================================ */
 .hero {
-  width: 100%;
+  max-width: 100%;
   height: 90vh;
   background-image: url("assets/images/hero-photo.png");
   background-size: cover;
@@ -309,11 +380,80 @@ a {
   border: 1px solid #ccc;
 }
 
+/* Popup Background */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Hidden State */
+.hidden {
+  display: none;
+}
+
+/* Popup Box */
+.popup-content {
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Title */
+.popup-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #0b3d2e;
+  font-weight: 700;
+}
+
+/* Body Text */
+.popup-content p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* Close Button */
+#close-popup {
+  padding: 10px 18px;
+  background: #0b3d2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#close-popup:hover {
+  background: #095c45;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ================================
    FOOTER
 ================================ */
 .site-footer {
-  width: 104%;
+  width: 100%;
   background: #0b3d2e;
   color: white;
   text-align: center;

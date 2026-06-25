@@ -364,26 +364,58 @@ filterButtons.forEach(button => {
 });
 
 /* ---------------------------------------------------
-   10. SUBMIT SERVICES → CONTACT PAGE
+   SUBMIT SELECTED SERVICES → GO TO CONTACT PAGE
 --------------------------------------------------- */
 
-const submitButton = document.getElementById("submit-services");
+const submitServicesButton = document.getElementById("submit-services");
 
-if (submitButton) {
-  submitButton.addEventListener("click", () => {
+if (submitServicesButton) {
+  submitServicesButton.addEventListener("click", () => {
     window.location.href = "contact.html";
   });
 }
+
+/* ---------------------------------------------------
+   10. SUBMIT SERVICES → CONTACT PAGE
+--------------------------------------------------- */
 
 const submitApptButton = document.getElementById("submit-appt");
 
 if (submitApptButton) {
   submitApptButton.addEventListener("click", () => {
-    alert(
-      "Your request will be processed in 24 - 48 hours. Once processed, a Sales Associate will send you a day and time for the onsite visit. If you have any questions in the meantime, feel free to email customerservice@bladeslinger.org or call 1-800-HELPYOU. Thank you for your interest in Blade Slinger Landscape Management and Drainage Solutions!"
-    );
+
+    const form = document.getElementById("contact-form");
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const confirmationNumber = "BS-" + Math.floor(100000 + Math.random() * 900000);
+
+    const message = `
+      Your request has been successfully submitted and is now being processed.<br><br>
+      A Sales Associate will contact you within 24–48 hours with your onsite visit details.<br><br>
+
+      <strong>Confirmation Number: ${confirmationNumber}</strong><br><br>
+
+      For questions, email customerservice@bladeslinger.org 
+      or call <strong>1-800-GOBLADE</strong>.<br><br>
+
+      Thank you for choosing Blade Slinger Landscaping & Drainage Solutions!<br><br>
+    `;
+
+    const popup = document.getElementById("confirmation-popup");
+    const text = document.getElementById("confirmation-text");
+    text.innerHTML = message;
+
+    popup.classList.remove("hidden");
+
+    document.getElementById("close-popup").addEventListener("click", () => {
+      popup.classList.add("hidden");
+    });
   });
 }
+
 
 /* ---------------------------------------------------
    DELETE ALL SERVICES
